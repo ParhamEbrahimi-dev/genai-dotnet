@@ -70,21 +70,37 @@ IChatClient client = new OpenAIClient(credential, options).GetChatClient("gpt-5.
 
 #region Summarization
 
-var summaryPrompt = """
-    summarize the following blog in 1 concise sentences:
+//var summaryPrompt = """
+//    summarize the following blog in 1 concise sentences:
 
-    "Microservices is an architecture where an application is divided into small, independent services that communicate over a network. Each service handles a specific function and can be developed and deployed separately.
+//    "Microservices is an architecture where an application is divided into small, independent services that communicate over a network. Each service handles a specific function and can be developed and deployed separately.
 
-    Services can be built using different programming languages and frameworks.
-    Each microservice is loosely coupled and can be developed, deployed, and scaled independently."
+//    Services can be built using different programming languages and frameworks.
+//    Each microservice is loosely coupled and can be developed, deployed, and scaled independently."
 
-    """;
-Console.WriteLine($"user >>> {summaryPrompt}");
-ChatResponse summaryResponse = await client.GetResponseAsync(summaryPrompt);
-Console.WriteLine($"assistant >>> \n {summaryResponse}");
+//    """;
+//Console.WriteLine($"user >>> {summaryPrompt}");
+//ChatResponse summaryResponse = await client.GetResponseAsync(summaryPrompt);
+//Console.WriteLine($"assistant >>> \n {summaryResponse}");
 
 #endregion
 
 #region Sentiment Analysis
 
+var analysisPrompt = """
+    you will analize the sentiment of the following product reviews.
+    Each lines is its own review.Output the sentiment of each review in a bulleted list and then provide a generate sentiment of all reviews.
+
+    I bought this product and its amazing ,I love it!
+    This Product is terrible , I hate it.
+    I'm not sure about this product .It's Okay.
+    I found this Product based on the others reviews. It Worked for a bit,and then it didn't.
+    """;
+
+Console.WriteLine($"user >>> {analysisPrompt}");
+ChatResponse analysisResponse = await client.GetResponseAsync(analysisPrompt);
+Console.WriteLine($"assistant >>> \n{analysisResponse}");
+Console.WriteLine($"Tokens used: in={analysisResponse.Usage?.InputTokenCount},out={analysisResponse.Usage?.OutputTokenCount}");
+
 #endregion
+
