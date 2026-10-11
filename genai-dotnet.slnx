@@ -1,0 +1,5 @@
+<Solution>
+  <Folder Name="/ai-llms/">
+    <Project Path="TextCompletion/TextCompletion.csproj" />
+  </Folder>
+</Solution>
