@@ -19,12 +19,29 @@ var options = new OpenAIClientOptions()
 IChatClient client = new OpenAIClient(credential, options).GetChatClient("gpt-5.4-mini").AsIChatClient();
 
 
-//send Prompt & get response
-string prompt = "What is AI? Explain in max 20 words";
+#region Basic Completion
+
+////send Prompt & get response
+//string prompt = "What is AI? Explain in max 20 words";
+//Console.WriteLine($"user >>> {prompt}");
+
+//ChatResponse response = await client.GetResponseAsync(prompt);
+//Console.WriteLine($"assistant >>> {response}");
+//Console.WriteLine($"Tokens used: in={response.Usage?.InputTokenCount},out={response.Usage?.OutputTokenCount}");
+
+#endregion
+
+
+#region Streaming
+string prompt = "What is AI? Explain in max 200 words";
 Console.WriteLine($"user >>> {prompt}");
 
-ChatResponse response = await client.GetResponseAsync(prompt);
-Console.WriteLine($"assistant >>> {response}");
-Console.WriteLine($"Tokens used: in={response.Usage?.InputTokenCount},out={response.Usage?.OutputTokenCount}");
+var streamResponse = client.GetStreamingResponseAsync(prompt);
+await foreach(var message in streamResponse)
+{
+    Console.Write(message.Text);
+}
 
 
+
+#endregion
