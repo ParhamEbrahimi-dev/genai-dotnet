@@ -33,15 +33,45 @@ IChatClient client = new OpenAIClient(credential, options).GetChatClient("gpt-5.
 
 
 #region Streaming
-string prompt = "What is AI? Explain in max 200 words";
-Console.WriteLine($"user >>> {prompt}");
 
-var streamResponse = client.GetStreamingResponseAsync(prompt);
-await foreach(var message in streamResponse)
-{
-    Console.Write(message.Text);
-}
+//string prompt = "What is AI? Explain in max 200 words";
+//Console.WriteLine($"user >>> {prompt}");
 
+//var streamResponse = client.GetStreamingResponseAsync(prompt);
+//await foreach(var message in streamResponse)
+//{
+//    Console.Write(message.Text);
+//}
 
+#endregion
+
+#region Classification
+
+var classificationPrompt = """
+    Please classify following sentences into categories:
+    - 'complaint'
+    - 'suggestion'
+    - 'praise'
+    - 'other'
+
+    1) "I Love the new layout!"
+    2) "you should add a night mode"
+    3) "when i try to login , it keep failing!"
+    4) "this app is decent"
+    
+    """;
+
+Console.WriteLine($"user >>> {classificationPrompt}");
+ChatResponse classificationResponse = await client.GetResponseAsync(classificationPrompt);
+Console.WriteLine($"assistant >>> \n {classificationResponse}");
+Console.WriteLine($"Tokens used: in={classificationResponse.Usage?.InputTokenCount},out={classificationResponse.Usage?.OutputTokenCount}");
+
+#endregion
+
+#region Summarization
+
+#endregion
+
+#region Sentiment Analysis
 
 #endregion
