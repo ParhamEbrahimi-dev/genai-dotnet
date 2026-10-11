@@ -20,5 +20,11 @@ IChatClient client = new OpenAIClient(credential, options).GetChatClient("gpt-5.
 
 
 //send Prompt & get response
-ChatResponse response = await client.GetResponseAsync("What is AI? Explain in max 20 words");
-Console.WriteLine(response);
+string prompt = "What is AI? Explain in max 20 words";
+Console.WriteLine($"user >>> {prompt}");
+
+ChatResponse response = await client.GetResponseAsync(prompt);
+Console.WriteLine($"assistant >>> {response}");
+Console.WriteLine($"Tokens used: in={response.Usage?.InputTokenCount},out={response.Usage?.OutputTokenCount}");
+
+
