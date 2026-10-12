@@ -1,14 +1,11 @@
-﻿
-
-//get credentials from user secret
-
-using Microsoft.Extensions.AI;
+﻿using Microsoft.Extensions.AI;
 using Microsoft.Extensions.Configuration;
 using OpenAI;
 //using OpenAI.Chat;
 using System.ClientModel;
 using System.Text.Json.Serialization;
 
+//get credentials from user secret
 
 IConfiguration config = new ConfigurationBuilder().AddUserSecrets<Program>().Build();
 
