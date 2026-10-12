@@ -20,19 +20,42 @@ IChatClient client = new OllamaApiClient(new Uri("http://localhost:11434"), "lla
 
 #region Sentiment Analysis
 
-var analysisPrompt = """
-    you will analize the sentiment of the following product reviews.
-    Each lines is its own review.Output the sentiment of each review in a bulleted list and then provide a generate sentiment of all reviews.
+//var analysisPrompt = """
+//    you will analize the sentiment of the following product reviews.
+//    Each lines is its own review.Output the sentiment of each review in a bulleted list and then provide a generate sentiment of all reviews.
 
-    I bought this product and its amazing ,I love it!
-    This Product is terrible , I hate it.
-    I'm not sure about this product .It's Okay.
-    I found this Product based on the others reviews. It Worked for a bit,and then it didn't.
+//    I bought this product and its amazing ,I love it!
+//    This Product is terrible , I hate it.
+//    I'm not sure about this product .It's Okay.
+//    I found this Product based on the others reviews. It Worked for a bit,and then it didn't.
+//    """;
+
+//Console.WriteLine($"user >>> {analysisPrompt}");
+//ChatResponse analysisResponse = await client.GetResponseAsync(analysisPrompt);
+//Console.WriteLine($"assistant >>> \n{analysisResponse}");
+//Console.WriteLine($"Tokens used: in={analysisResponse.Usage?.InputTokenCount},out={analysisResponse.Usage?.OutputTokenCount}");
+
+#endregion
+
+#region Classification
+
+var classificationPrompt = """
+    Please classify following sentences into categories:
+    - 'complaint'
+    - 'suggestion'
+    - 'praise'
+    - 'other'
+
+    1) "I Love the new layout!"
+    2) "you should add a night mode"
+    3) "when i try to login , it keep failing!"
+    4) "this app is decent"
+
     """;
 
-Console.WriteLine($"user >>> {analysisPrompt}");
-ChatResponse analysisResponse = await client.GetResponseAsync(analysisPrompt);
-Console.WriteLine($"assistant >>> \n{analysisResponse}");
-Console.WriteLine($"Tokens used: in={analysisResponse.Usage?.InputTokenCount},out={analysisResponse.Usage?.OutputTokenCount}");
+Console.WriteLine($"user >>> {classificationPrompt}");
+ChatResponse classificationResponse = await client.GetResponseAsync(classificationPrompt);
+Console.WriteLine($"assistant >>> \n {classificationResponse}");
+Console.WriteLine($"Tokens used: in={classificationResponse.Usage?.InputTokenCount},out={classificationResponse.Usage?.OutputTokenCount}");
 
 #endregion
