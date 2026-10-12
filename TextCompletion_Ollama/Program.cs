@@ -21,14 +21,31 @@ IChatClient client = new OllamaApiClient(new Uri("http://localhost:11434"), "lla
 
 #region Streaming
 
-string prompt = "What is AI? Explain in max 200 words";
-Console.WriteLine($"user >>> {prompt}");
+//string prompt = "What is AI? Explain in max 200 words";
+//Console.WriteLine($"user >>> {prompt}");
 
-var streamResponse = client.GetStreamingResponseAsync(prompt);
-await foreach (var message in streamResponse)
-{
-    Console.Write(message.Text);
-}
+//var streamResponse = client.GetStreamingResponseAsync(prompt);
+//await foreach (var message in streamResponse)
+//{
+//    Console.Write(message.Text);
+//}
+
+#endregion
+
+#region Summarization
+
+var summaryPrompt = """
+    summarize the following blog in 1 concise sentences:
+
+    "Microservices is an architecture where an application is divided into small, independent services that communicate over a network. Each service handles a specific function and can be developed and deployed separately.
+
+    Services can be built using different programming languages and frameworks.
+    Each microservice is loosely coupled and can be developed, deployed, and scaled independently."
+
+    """;
+Console.WriteLine($"user >>> {summaryPrompt}");
+ChatResponse summaryResponse = await client.GetResponseAsync(summaryPrompt);
+Console.WriteLine($"assistant >>> \n {summaryResponse}");
 
 #endregion
 
