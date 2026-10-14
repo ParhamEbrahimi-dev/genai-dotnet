@@ -7,5 +7,6 @@
   <Folder Name="/ai-vectors/">
     <Project Path="Embeddings/Embeddings.csproj" Id="b86034f5-eb0a-49f6-8d1c-f8faf6ceb96b" />
     <Project Path="VectorSearch/VectorSearch.csproj" Id="9fa90945-0b2d-4889-ae5b-e8520b078bb8" />
+    <Project Path="VectorSearch_Ollama/VectorSearch_Ollama.csproj" Id="0552e27f-9ce5-4cc3-911c-27ccb62f376e" />
   </Folder>
 </Solution>
