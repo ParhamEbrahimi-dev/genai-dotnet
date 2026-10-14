@@ -37,3 +37,20 @@ foreach(var movie in MovieData.Movies)
     //add the overall movie to the in-memory vector store's movies collection
     await movieStore.UpsertAsync(movie);
 }
+
+//generate the embedding from the user's prompt
+//var query = "I want to see family friendly movie";
+var query = "A science fiction movie about space travel";
+var queryEmbedding = await embeddingGenerator.GenerateVectorAsync(query);
+
+//search the knowlege store based on user's prompt
+var searchResults = movieStore.SearchAsync(queryEmbedding, top: 2);
+
+//see the relevant results
+await foreach(var result in searchResults)
+{
+    Console.WriteLine($"Title: {result.Record.Title}");
+    Console.WriteLine($"Description: {result.Record.Description}");
+    Console.WriteLine($"Score:{result.Score}");
+    Console.WriteLine();
+}
