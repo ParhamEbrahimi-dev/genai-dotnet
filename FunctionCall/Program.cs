@@ -16,7 +16,7 @@ var options = new OpenAIClientOptions
 };
 
 //create chat client 
-IChatClient client = new ChatClientBuilder(new OpenAIClient(credential, options).GetChatClient("gpt-5.4-mini").AsIChatClient())
+IChatClient client = new ChatClientBuilder(new OpenAIClient(credential, options).GetChatClient("gpt-5-mini").AsIChatClient())
     .UseFunctionInvocation().Build();
 
 var chatOptions = new ChatOptions
