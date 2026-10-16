@@ -6,6 +6,7 @@
   </Folder>
   <Folder Name="/ai-rag/">
     <Project Path="ChatApp_RAG/ChatApp_RAG.csproj" />
+    <Project Path="ChatApp_RAG_Ollama/ChatApp_RAG_Ollama.csproj" />
   </Folder>
   <Folder Name="/ai-vectors/">
     <Project Path="Embeddings/Embeddings.csproj" Id="b86034f5-eb0a-49f6-8d1c-f8faf6ceb96b" />
