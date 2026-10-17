@@ -7,6 +7,9 @@
   <Folder Name="/ai-rag/">
     <Project Path="ChatApp_RAG/ChatApp_RAG.csproj" />
     <Project Path="ChatApp_RAG_Ollama/ChatApp_RAG_Ollama.csproj" />
+    <Project Path="ChatApp_RAG_Qdrant/ChatApp_RAG_Qdrant.AppHost/ChatApp_RAG_Qdrant.AppHost.csproj" />
+    <Project Path="ChatApp_RAG_Qdrant/ChatApp_RAG_Qdrant.ServiceDefaults/ChatApp_RAG_Qdrant.ServiceDefaults.csproj" />
+    <Project Path="ChatApp_RAG_Qdrant/ChatApp_RAG_Qdrant.Web/ChatApp_RAG_Qdrant.Web.csproj" />
   </Folder>
   <Folder Name="/ai-vectors/">
     <Project Path="Embeddings/Embeddings.csproj" Id="b86034f5-eb0a-49f6-8d1c-f8faf6ceb96b" />
