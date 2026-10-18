@@ -16,4 +16,7 @@
     <Project Path="VectorSearch/VectorSearch.csproj" Id="9fa90945-0b2d-4889-ae5b-e8520b078bb8" />
     <Project Path="VectorSearch_Ollama/VectorSearch_Ollama.csproj" Id="0552e27f-9ce5-4cc3-911c-27ccb62f376e" />
   </Folder>
+  <Folder Name="/ai-vision/">
+    <Project Path="ImageAnalysis/ImageAnalysis.csproj" Id="f1540ea3-377c-40ce-bf75-47793f0f340d" />
+  </Folder>
 </Solution>
