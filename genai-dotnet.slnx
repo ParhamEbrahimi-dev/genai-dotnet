@@ -18,5 +18,6 @@
   </Folder>
   <Folder Name="/ai-vision/">
     <Project Path="ImageAnalysis/ImageAnalysis.csproj" Id="f1540ea3-377c-40ce-bf75-47793f0f340d" />
+    <Project Path="TrafficCamAnalysis/TrafficCamAnalysis.csproj" Id="27838f1f-0bb6-48ac-a8de-443f27255195" />
   </Folder>
 </Solution>
