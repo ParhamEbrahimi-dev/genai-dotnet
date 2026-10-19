@@ -41,6 +41,7 @@ foreach (var imagePath in Directory.GetFiles("images", "*.jpg"))
         Console.WriteLine($"{name} status:{result.Status} (cars: {result.NumCars}, trucks: {result.NumTrucks}");
         Console.WriteLine($"Tokens used: in={response.Usage?.InputTokenCount},out={response.Usage?.OutputTokenCount}");
         Console.WriteLine("\n");
+        //await Task.Delay(60000); RateLimit RPM Delay
     }
 
 }
